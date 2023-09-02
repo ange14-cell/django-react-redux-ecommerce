@@ -4,7 +4,6 @@ import { Row, Col, Image, ListGroup, Button, Card, Form} from 'react-bootstrap'
 import Rating from '../components/Rating'
 import { useDispatch, useSelector } from 'react-redux'
 import { listProductDetails } from '../actions/product.action'
-import store from './../store';
 import { useNavigate } from 'react-router-dom'
 import Loader from '../components/Loader'
 import Message from './../components/Message';
@@ -21,7 +20,7 @@ function ProductScreen({ match, history }) {
    
     
     const navigate = useNavigate()
-    console.log(navigate);
+
     
     const dispatch = useDispatch()
     
@@ -34,7 +33,7 @@ function ProductScreen({ match, history }) {
     }, [dispatch, id])   
     
     const addToCartHandler = () => {
-        navigate.push(`/cart/${id}?qty=${qty}`)
+        navigate(`/cart/${id}?qty=${qty}`)
     }
 
 
